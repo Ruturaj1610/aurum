@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   CSS CUSTOM PROPERTIES — Light (default) & Dark themes
+   ========================================================= */
+:root {
+  /* Backgrounds */
+  --bg-primary:     #FAF7F2;   /* warm ivory */
+  --bg-secondary:   #F2ECE2;   /* deeper cream */
+  --bg-card:        #FFFFFF;
+  --bg-card-alt:    #FDFAF6;   /* warm white */
+  --bg-overlay:     rgba(250, 247, 242, 0.92);
+
+  /* Typography */
+  --text-heading:   #1C1A17;   /* deep charcoal */
+  --text-body:      #3F3C38;
+  --text-secondary: #524F4A;
+  --text-muted:     #6B6860;
+  --text-faint:     #88847C;
+
+  /* Borders */
+  --border-light:   #E8E0D0;
+  --border-muted:   #D4C8B2;
+  --border-gold:    rgba(197, 155, 75, 0.3);
+
+  /* Gold Accents (slightly muted for light bg) */
+  --gold-primary:   #B8892E;
+  --gold-bright:    #C59B4B;
+  --gold-glow:      rgba(197, 155, 75, 0.18);
+  --gold-glow-sm:   rgba(197, 155, 75, 0.10);
+
+  /* Navbar */
+  --nav-bg:         rgba(253, 251, 247, 0.85);
+  --nav-bg-scrolled:rgba(253, 251, 247, 0.97);
+  --nav-border:     rgba(232, 224, 208, 0.8);
+
+  /* Buttons */
+  --btn-gold-bg:       linear-gradient(135deg, #DFB76C 0%, #C59B4B 50%, #A47D1C 100%);
+  --btn-gold-hover-bg: linear-gradient(135deg, #EBD9BA 0%, #DFB76C 50%, #C59B27 100%);
+  --btn-outline-border: rgba(197, 155, 75, 0.5);
+  --btn-outline-text:   #3F3C38;
+  --btn-outline-bg:     rgba(250, 247, 242, 0.6);
+
+  /* Shimmer */
+  --shimmer-color: rgba(197, 155, 75, 0.15);
+}
+
+.dark {
+  /* Backgrounds */
+  --bg-primary:     #0C0D11;
+  --bg-secondary:   #07080A;
+  --bg-card:        #12141A;
+  --bg-card-alt:    #171922;
+  --bg-overlay:     rgba(12, 13, 17, 0.88);
+
+  /* Typography */
+  --text-heading:   #F8F5EE;
+  --text-body:      #EFE9DE;
+  --text-secondary: #DFD5C2;
+  --text-muted:     #BDB19B;
+  --text-faint:     #8E826C;
+
+  /* Borders */
+  --border-light:   #1E212D;
+  --border-muted:   #272B3A;
+  --border-gold:    rgba(223, 183, 108, 0.2);
+
+  /* Gold Accents */
+  --gold-primary:   #DFB76C;
+  --gold-bright:    #F5E6CA;
+  --gold-glow:      rgba(212, 175, 55, 0.18);
+  --gold-glow-sm:   rgba(212, 175, 55, 0.08);
+
+  /* Navbar */
+  --nav-bg:         rgba(12, 13, 17, 0.75);
+  --nav-bg-scrolled:rgba(12, 13, 17, 0.95);
+  --nav-border:     rgba(30, 33, 45, 0.9);
+
+  /* Buttons */
+  --btn-gold-bg:       linear-gradient(135deg, #DFB76C 0%, #C59B27 50%, #A47D1C 100%);
+  --btn-gold-hover-bg: linear-gradient(135deg, #EBD9BA 0%, #DFB76C 50%, #C59B27 100%);
+  --btn-outline-border: rgba(212, 175, 55, 0.5);
+  --btn-outline-text:   #F5E6CA;
+  --btn-outline-bg:     rgba(12, 13, 17, 0.6);
+
+  /* Shimmer */
+  --shimmer-color: rgba(223, 183, 108, 0.12);
+}
+
+/* =========================================================
+   BASE STYLES
+   ========================================================= */
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-body);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 0.02em;
+    color: var(--text-heading);
+  }
+}
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+   ========================================================= */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-bright);
+}
+
+/* =========================================================
+   LUXURY UTILITIES  (via CSS variables — theme-adaptive)
+   ========================================================= */
+
+/* Gold gradient text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF9ED 0%, #DFB76C 45%, #C59B27 75%, #E2CB9F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle version for light mode headings */
+.gold-gradient-text-subtle {
+  background: linear-gradient(135deg, #8E6C2D 0%, #C59B4B 60%, #DFB76C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gold-gradient-text-subtle {
+  background: linear-gradient(135deg, #FFFFFF 0%, #ECDDBA 60%, #DFB76C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Adaptive gold border card */
+.gold-border-card {
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 0 15px var(--gold-glow-sm);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gold-border-card:hover {
+  border-color: rgba(197, 155, 75, 0.5);
+  box-shadow: 0 0 25px var(--gold-glow);
+}
+
+/* Glass panel (light: warm white frosted) */
+.glass-panel {
+  background: var(--bg-overlay);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+}
+
+/* Glass panel with gold tint */
+.glass-panel-gold {
+  background: var(--bg-overlay);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+}
+
+/* Theme-adaptive card surface */
+.theme-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-card:hover {
+  border-color: rgba(197, 155, 75, 0.4);
+}
+
+/* =========================================================
+   SHIMMER ANIMATION
+   ========================================================= */
+@keyframes goldShimmer {
+  0%   { transform: translateX(-100%) skewX(-20deg); }
+  100% { transform: translateX(300%) skewX(-20deg); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--shimmer-color) 50%,
+    transparent 100%
+  );
+  animation: goldShimmer 4s infinite;
+}
+
+/* =========================================================
+   LUXURY BUTTON STYLES  (CSS-variable powered)
+   ========================================================= */
+
+/* Primary gold filled CTA */
+.btn-gold {
+  background: var(--btn-gold-bg);
+  color: #07080A;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold:hover {
+  background: var(--btn-gold-hover-bg);
+  box-shadow: 0 0 22px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+/* Ghost/outline gold button */
+.btn-outline-gold {
+  border: 1px solid var(--btn-outline-border);
+  color: var(--btn-outline-text);
+  background: var(--btn-outline-bg);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  border-color: var(--gold-bright);
+  background: rgba(197, 155, 75, 0.08);
+  box-shadow: 0 0 18px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   THEME TRANSITION — smooth switching
+   ========================================================= */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Exclude transitions for elements that shouldn't animate */
+img, video, svg, [role="img"],
+.no-transition, .no-transition * {
+  transition: none !important;
+}
