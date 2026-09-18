@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { siteConfig } from '../config/site';
 import SectionHeading from './SectionHeading';
 import Reveal from './Reveal';
 import { Sparkles, Eye, ArrowUpRight } from 'lucide-react';
 
 export default function Showcase({ onEnquireProduct, selectedCategory = 'All' }) {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState(selectedCategory || 'All');
+
+  // Synchronize when collection card is clicked elsewhere
+  useEffect(() => {
+    if (selectedCategory) {
+      setActiveFilter(selectedCategory);
+    }
+  }, [selectedCategory]);
 
   const categories = ['All', 'Gold', 'Diamond', 'Bridal'];
   const filteredProducts =
@@ -37,29 +44,33 @@ export default function Showcase({ onEnquireProduct, selectedCategory = 'All' })
         {/* Filter Tabs */}
         <Reveal delay={100}>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className="px-6 py-2 rounded-full text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 cursor-pointer"
-                style={
-                  activeFilter === category
-                    ? {
-                        background: 'var(--btn-gold-bg)',
-                        color: '#07080A',
-                        fontWeight: 600,
-                        boxShadow: '0 0 18px var(--gold-glow)',
-                      }
-                    : {
-                        backgroundColor: 'var(--bg-card)',
-                        color: 'var(--text-muted)',
-                        border: '1px solid var(--border-light)',
-                      }
-                }
-              >
-                {category}
-              </button>
-            ))}
+            {categories.map((category) => {
+              const isActive = activeFilter.toLowerCase() === category.toLowerCase();
+              return (
+                <button
+                  key={category}
+                  onClick={() => setActiveFilter(category)}
+                  className="px-6 py-2.5 rounded-full text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 cursor-pointer"
+                  style={
+                    isActive
+                      ? {
+                          background: 'var(--btn-gold-bg)',
+                          color: '#07080A',
+                          fontWeight: 600,
+                          boxShadow: '0 0 20px var(--gold-glow)',
+                          transform: 'scale(1.02)',
+                        }
+                      : {
+                          backgroundColor: 'var(--bg-card)',
+                          color: 'var(--text-secondary)',
+                          border: '1px solid var(--border-light)',
+                        }
+                  }
+                >
+                  {category}
+                </button>
+              );
+            })}
           </div>
         </Reveal>
 
@@ -68,19 +79,19 @@ export default function Showcase({ onEnquireProduct, selectedCategory = 'All' })
           {filteredProducts.map((product, index) => (
             <Reveal key={product.id} delay={index * 80}>
               <div
-                className="group rounded-xl overflow-hidden flex flex-col transition-all duration-500"
+                className="group rounded-2xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:-translate-y-1"
                 style={{
                   backgroundColor: 'var(--bg-card)',
                   border: '1px solid var(--border-light)',
-                  boxShadow: '0 4px 20px -4px rgba(28,26,23,0.07)',
+                  boxShadow: '0 4px 20px -4px rgba(28,26,23,0.06)',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(197,155,75,0.4)';
-                  e.currentTarget.style.boxShadow = '0 12px 40px -8px var(--gold-glow)';
+                  e.currentTarget.style.borderColor = 'var(--border-gold)';
+                  e.currentTarget.style.boxShadow = '0 14px 40px -8px var(--gold-glow)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = 'var(--border-light)';
-                  e.currentTarget.style.boxShadow = '0 4px 20px -4px rgba(28,26,23,0.07)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px -4px rgba(28,26,23,0.06)';
                 }}
               >
                 {/* Image */}
@@ -89,17 +100,17 @@ export default function Showcase({ onEnquireProduct, selectedCategory = 'All' })
                     src={product.image}
                     alt={`${product.name} — Aurum Jewels`}
                     loading="lazy"
-                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
 
                   {/* Badge */}
                   <div className="absolute top-4 left-4 z-10">
                     <span
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold backdrop-blur-md"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold backdrop-blur-md shadow-sm"
                       style={{ backgroundColor: 'rgba(12,13,17,0.85)', border: '1px solid var(--border-gold)', color: 'var(--gold-bright)' }}
                     >
-                      <Sparkles className="w-3 h-3" />
+                      <Sparkles className="w-3 h-3 text-gold-400" />
                       {product.badge}
                     </span>
                   </div>
@@ -107,33 +118,33 @@ export default function Showcase({ onEnquireProduct, selectedCategory = 'All' })
                   {/* Category */}
                   <div className="absolute top-4 right-4 z-10">
                     <span
-                      className="px-2.5 py-0.5 rounded text-[10px] uppercase tracking-widest backdrop-blur-sm"
-                      style={{ backgroundColor: 'rgba(12,13,17,0.7)', color: 'rgba(255,255,255,0.75)', border: '1px solid rgba(255,255,255,0.1)' }}
+                      className="px-2.5 py-0.5 rounded text-[10px] uppercase tracking-widest backdrop-blur-sm font-medium"
+                      style={{ backgroundColor: 'rgba(12,13,17,0.75)', color: '#FFFFFF', border: '1px solid rgba(255,255,255,0.15)' }}
                     >
                       {product.category}
                     </span>
                   </div>
 
                   {/* Quick View Overlay */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(12,13,17,0.35)' }}>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(12,13,17,0.4)' }}>
                     <button
                       onClick={() => onEnquireProduct(product)}
-                      className="px-5 py-2.5 rounded-full text-xs uppercase tracking-wider font-medium flex items-center gap-2 shadow-lg transition-all"
-                      style={{ backgroundColor: 'rgba(12,13,17,0.9)', color: 'white', border: '1px solid var(--border-gold)' }}
+                      className="px-5 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold flex items-center gap-2 shadow-xl transition-all cursor-pointer hover:scale-105 active:scale-95"
+                      style={{ backgroundColor: 'rgba(12,13,17,0.92)', color: '#FFFFFF', border: '1px solid var(--border-gold)' }}
                     >
-                      <Eye className="w-3.5 h-3.5" />
+                      <Eye className="w-3.5 h-3.5 text-gold-400" />
                       <span>Quick View & Enquire</span>
                     </button>
                   </div>
                 </div>
 
                 {/* Card Details */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="text-[11px] uppercase tracking-[0.2em] font-medium mb-1.5" style={{ color: 'var(--gold-primary)' }}>
                       {product.purity}
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-serif mb-2.5 transition-colors" style={{ color: 'var(--text-heading)' }}>
+                    <h3 className="text-xl sm:text-2xl font-serif mb-2.5 font-normal transition-colors" style={{ color: 'var(--text-heading)' }}>
                       {product.name}
                     </h3>
                     <p className="text-xs sm:text-sm font-light leading-relaxed line-clamp-2 mb-6" style={{ color: 'var(--text-muted)' }}>

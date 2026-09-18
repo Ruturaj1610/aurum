@@ -63,23 +63,23 @@ export default function Appointment({ initialCategory = '', onShowToast }) {
 
   // Shared input styles
   const inputBase = {
-    backgroundColor: 'var(--bg-card)',
+    backgroundColor: 'var(--bg-card-alt)',
     color: 'var(--text-heading)',
     border: '1px solid var(--border-light)',
-    borderRadius: '0.5rem',
+    borderRadius: '0.75rem',
     fontSize: '0.875rem',
     width: '100%',
-    padding: '12px 16px 12px 40px',
+    padding: '13px 16px 13px 42px',
     outline: 'none',
     transition: 'border-color 0.2s, box-shadow 0.2s',
   };
-  const inputError = { borderColor: '#EF4444', boxShadow: '0 0 0 3px rgba(239,68,68,0.15)' };
+  const inputError = { borderColor: '#EF4444', boxShadow: '0 0 0 3px rgba(239,68,68,0.12)' };
   const inputFocus = { borderColor: 'var(--gold-primary)', boxShadow: '0 0 0 3px var(--gold-glow-sm)' };
 
   const handleFocus = (e) => Object.assign(e.target.style, inputFocus);
   const handleBlur = (e) => {
     e.target.style.borderColor = errors[e.target.name] ? '#EF4444' : 'var(--border-light)';
-    e.target.style.boxShadow = errors[e.target.name] ? '0 0 0 3px rgba(239,68,68,0.15)' : 'none';
+    e.target.style.boxShadow = errors[e.target.name] ? '0 0 0 3px rgba(239,68,68,0.12)' : 'none';
   };
 
   return (
@@ -97,10 +97,10 @@ export default function Appointment({ initialCategory = '', onShowToast }) {
 
         <Reveal delay={120}>
           <div
-            className="rounded-2xl shadow-2xl p-6 sm:p-10 md:p-12 relative overflow-hidden"
+            className="rounded-2xl shadow-xl p-6 sm:p-10 md:p-12 relative overflow-hidden"
             style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-light)' }}
           >
-            {/* Top gold accent */}
+            {/* Top gold hairline accent */}
             <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, var(--gold-primary), transparent)' }} />
 
             {submittedSuccess ? (

@@ -49,28 +49,28 @@ export default function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[250px] bg-gold-400/5 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Trust & Certification Strip */}
-      <div className="border-b border-dark-800 py-8 bg-dark-900/50">
+      <div className="border-b border-dark-800/80 py-8 bg-dark-900/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="flex flex-col items-center">
               <ShieldCheck className="w-5 h-5 text-gold-400 mb-2" />
               <span className="text-xs uppercase tracking-widest text-ivory-100 font-semibold">100% BIS Hallmarked</span>
-              <span className="text-[11px] text-ivory-500 mt-0.5">Government HUID Assured</span>
+              <span className="text-[11px] text-ivory-400 mt-0.5 font-light">Government HUID Assured</span>
             </div>
             <div className="flex flex-col items-center">
               <Sparkles className="w-5 h-5 text-gold-400 mb-2" />
               <span className="text-xs uppercase tracking-widest text-ivory-100 font-semibold">Certified Diamonds</span>
-              <span className="text-[11px] text-ivory-500 mt-0.5">IGI & GIA Graded Solitaires</span>
+              <span className="text-[11px] text-ivory-400 mt-0.5 font-light">IGI & GIA Graded Solitaires</span>
             </div>
             <div className="flex flex-col items-center">
               <Award className="w-5 h-5 text-gold-400 mb-2" />
               <span className="text-xs uppercase tracking-widest text-ivory-100 font-semibold">Bespoke Artisanship</span>
-              <span className="text-[11px] text-ivory-500 mt-0.5">Master Karigar Benchwork</span>
+              <span className="text-[11px] text-ivory-400 mt-0.5 font-light">Master Karigar Benchwork</span>
             </div>
             <div className="flex flex-col items-center">
               <span className="font-serif text-lg text-gold-400 font-bold mb-1">AJ</span>
               <span className="text-xs uppercase tracking-widest text-ivory-100 font-semibold">Insured Transit</span>
-              <span className="text-[11px] text-ivory-500 mt-0.5">Safe & Discreet Handling</span>
+              <span className="text-[11px] text-ivory-400 mt-0.5 font-light">Safe & Discreet Handling</span>
             </div>
           </div>
         </div>
@@ -92,19 +92,19 @@ export default function Footer() {
                 <span className="font-serif text-2xl font-normal tracking-[0.18em] uppercase text-ivory-50 block">
                   {siteConfig.brand.name}
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.28em] text-gold-400/80 font-sans block -mt-1">
+                <span className="text-[9px] uppercase tracking-[0.28em] text-gold-400 font-sans block -mt-1">
                   Haute Joaillerie
                 </span>
               </div>
             </div>
 
-            <p className="text-ivory-400 text-xs sm:text-sm font-light leading-relaxed max-w-sm">
+            <p className="text-ivory-300 text-xs sm:text-sm font-light leading-relaxed max-w-sm">
               {siteConfig.brand.shortDescription}
             </p>
 
             {/* Social Links */}
             <div className="pt-2">
-              <span className="text-[11px] uppercase tracking-widest text-ivory-400 block mb-3 font-semibold">
+              <span className="text-[11px] uppercase tracking-widest text-ivory-300 block mb-3 font-semibold">
                 Follow The Atelier
               </span>
               <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow Aurum Jewels on Instagram"
-                  className="w-9 h-9 rounded-full bg-dark-850 border border-dark-750 flex items-center justify-center text-ivory-300 hover:text-gold-300 hover:border-gold-400/50 hover:bg-dark-800 transition-all"
+                  className="w-9 h-9 rounded-full bg-dark-850 border border-dark-750 flex items-center justify-center text-ivory-300 hover:text-gold-300 hover:border-gold-400/50 hover:bg-dark-800 transition-all hover:scale-105"
                 >
                   <InstagramIcon className="w-4 h-4" />
                 </a>
@@ -122,7 +122,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow Aurum Jewels on Facebook"
-                  className="w-9 h-9 rounded-full bg-dark-850 border border-dark-750 flex items-center justify-center text-ivory-300 hover:text-gold-300 hover:border-gold-400/50 hover:bg-dark-800 transition-all"
+                  className="w-9 h-9 rounded-full bg-dark-850 border border-dark-750 flex items-center justify-center text-ivory-300 hover:text-gold-300 hover:border-gold-400/50 hover:bg-dark-800 transition-all hover:scale-105"
                 >
                   <FacebookIcon className="w-4 h-4" />
                 </a>
@@ -131,7 +131,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow Aurum Jewels on YouTube"
-                  className="w-9 h-9 rounded-full bg-dark-850 border border-dark-750 flex items-center justify-center text-ivory-300 hover:text-gold-300 hover:border-gold-400/50 hover:bg-dark-800 transition-all"
+                  className="w-9 h-9 rounded-full bg-dark-850 border border-dark-750 flex items-center justify-center text-ivory-300 hover:text-gold-300 hover:border-gold-400/50 hover:bg-dark-800 transition-all hover:scale-105"
                 >
                   <YoutubeIcon className="w-4 h-4" />
                 </a>

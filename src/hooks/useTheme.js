@@ -12,12 +12,8 @@ export function useTheme() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('aurum-theme');
       if (saved === 'dark' || saved === 'light') return saved;
-      // First visit: use system preference
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-      }
     }
-    // Default: light luxury
+    // Default: light luxury (warm ivory/cream)
     return 'light';
   });
 

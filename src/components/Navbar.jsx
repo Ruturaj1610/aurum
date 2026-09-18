@@ -50,33 +50,33 @@ export default function Navbar({
     <>
       {/* Top Announcement Bar */}
       <div
-        className="hidden sm:block py-2 text-xs relative z-50 border-b"
+        className="hidden sm:block py-2.5 text-xs relative z-50 border-b transition-colors"
         style={{
-          backgroundColor: isDark ? '#07080A' : '#F2ECE2',
+          backgroundColor: isDark ? '#0A0B0F' : 'var(--bg-secondary)',
           borderColor: isDark
-            ? 'rgba(30,33,45,0.8)'
-            : 'rgba(232,224,208,0.9)',
-          color: isDark ? '#8E826C' : '#6B6860',
+            ? 'rgba(33,37,51,0.8)'
+            : 'var(--border-light)',
+          color: isDark ? 'var(--text-muted)' : 'var(--text-secondary)',
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
 
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-2">
               <Clock
-                className="w-3.5 h-3.5"
+                className="w-3.5 h-3.5 flex-shrink-0"
                 style={{ color: 'var(--gold-primary)' }}
               />
-              <span>
+              <span className="tracking-wide">
                 Showroom: 10:30 AM – 8:30 PM (Mon – Sat)
               </span>
             </span>
 
             <span
-              className="hidden md:inline-flex items-center gap-1 font-medium"
+              className="hidden md:inline-flex items-center gap-1.5 font-medium tracking-wide"
               style={{ color: 'var(--gold-primary)' }}
             >
-              <Sparkles className="w-3 h-3" />
+              <Sparkles className="w-3.5 h-3.5 flex-shrink-0" />
               <span>
                 100% BIS 916 Hallmarked &amp; Certified Diamonds
               </span>
@@ -88,10 +88,10 @@ export default function Navbar({
               /[^0-9+]/g,
               ''
             )}`}
-            className="flex items-center gap-1.5 transition-colors hover:opacity-80 whitespace-nowrap"
+            className="flex items-center gap-2 transition-opacity hover:opacity-80 whitespace-nowrap tracking-wide"
           >
             <Phone
-              className="w-3 h-3"
+              className="w-3.5 h-3.5 flex-shrink-0"
               style={{ color: 'var(--gold-primary)' }}
             />
             <span>
@@ -108,16 +108,17 @@ export default function Navbar({
           backgroundColor: isScrolled
             ? 'var(--nav-bg-scrolled)'
             : 'var(--nav-bg)',
-          borderBottom: `1px solid ${isScrolled
+          borderBottom: `1px solid ${
+            isScrolled
               ? 'var(--border-gold)'
               : 'var(--border-light)'
-            }`,
-          backdropFilter: 'blur(14px)',
-          WebkitBackdropFilter: 'blur(14px)',
+          }`,
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
           boxShadow: isScrolled
             ? isDark
               ? '0 4px 30px rgba(0,0,0,0.5)'
-              : '0 4px 20px rgba(28,26,23,0.08)'
+              : '0 4px 20px rgba(28,26,23,0.06)'
             : 'none',
           paddingTop: isScrolled ? '12px' : '16px',
           paddingBottom: isScrolled ? '12px' : '16px',
@@ -135,12 +136,12 @@ export default function Navbar({
               aria-label="Aurum Jewels Homepage"
             >
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-105"
                 style={{
                   border: '1px solid var(--border-gold)',
                   backgroundColor: isDark
-                    ? '#12141A'
-                    : '#FDFAF6',
+                    ? '#151821'
+                    : '#FFFFFF',
                   boxShadow: '0 0 12px var(--gold-glow-sm)',
                 }}
               >
@@ -154,7 +155,7 @@ export default function Navbar({
 
               <div className="flex flex-col">
                 <span
-                  className="font-serif text-xl sm:text-2xl font-medium tracking-[0.18em] uppercase transition-colors"
+                  className="font-serif text-xl sm:text-2xl font-normal tracking-[0.18em] uppercase transition-colors"
                   style={{ color: 'var(--text-heading)' }}
                 >
                   {siteConfig.brand.name}
@@ -164,7 +165,7 @@ export default function Navbar({
                   className="text-[9px] uppercase tracking-[0.28em] font-sans -mt-0.5"
                   style={{
                     color: 'var(--gold-primary)',
-                    opacity: 0.8,
+                    opacity: 0.9,
                   }}
                 >
                   Haute Joaillerie
@@ -174,7 +175,7 @@ export default function Navbar({
 
             {/* Desktop Navigation */}
             <nav
-              className="hidden lg:flex items-center justify-center gap-6 xl:gap-7"
+              className="hidden lg:flex items-center justify-center gap-6 xl:gap-8"
               aria-label="Main Navigation"
             >
               {siteConfig.navLinks.map((link) => (
@@ -184,15 +185,13 @@ export default function Navbar({
                   onClick={(e) =>
                     handleNavClick(e, link.href)
                   }
-                  className="text-xs uppercase tracking-[0.18em] font-medium relative py-1 group transition-colors whitespace-nowrap"
-                  style={{ color: 'var(--text-muted)' }}
+                  className="text-[11px] xl:text-xs uppercase tracking-[0.2em] font-medium relative py-1.5 group transition-colors whitespace-nowrap"
+                  style={{ color: 'var(--text-secondary)' }}
                   onMouseEnter={(e) =>
-                  (e.currentTarget.style.color =
-                    'var(--gold-primary)')
+                    (e.currentTarget.style.color = 'var(--gold-primary)')
                   }
                   onMouseLeave={(e) =>
-                  (e.currentTarget.style.color =
-                    'var(--text-muted)')
+                    (e.currentTarget.style.color = 'var(--text-secondary)')
                   }
                 >
                   {link.label}
@@ -224,13 +223,14 @@ export default function Navbar({
                     ? 'Switch to Light Mode'
                     : 'Switch to Dark Mode'
                 }
-                className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-full text-[10px] uppercase tracking-[0.12em] font-medium transition-all duration-200 whitespace-nowrap focus:outline-none focus:ring-1 focus:ring-gold-400/50"
+                className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-full text-[11px] uppercase tracking-[0.14em] font-medium transition-all duration-200 whitespace-nowrap focus:outline-none focus:ring-1 focus:ring-gold-400/50 hover:scale-105 active:scale-95 cursor-pointer"
                 style={{
                   border: '1px solid var(--border-gold)',
                   backgroundColor: isDark
-                    ? '#1E212D'
-                    : '#FDFAF6',
+                    ? '#1A1D27'
+                    : '#FFFFFF',
                   color: 'var(--gold-primary)',
+                  boxShadow: '0 2px 8px -2px rgba(0,0,0,0.05)',
                 }}
               >
                 {isDark ? (
@@ -240,7 +240,7 @@ export default function Navbar({
                 )}
 
                 <span>
-                  {isDark ? 'Light Mode' : 'Dark Mode'}
+                  {isDark ? 'Light' : 'Dark'}
                 </span>
               </button>
 
@@ -260,8 +260,8 @@ export default function Navbar({
               onClick={() =>
                 setMobileMenuOpen(!mobileMenuOpen)
               }
-              className="lg:hidden justify-self-end p-2 rounded-md transition-colors focus:outline-none focus:ring-1 focus:ring-gold-400"
-              style={{ color: 'var(--text-muted)' }}
+              className="lg:hidden justify-self-end p-2 rounded-md transition-colors focus:outline-none focus:ring-1 focus:ring-gold-400 cursor-pointer"
+              style={{ color: 'var(--text-heading)' }}
               aria-label={
                 mobileMenuOpen
                   ? 'Close menu'
@@ -301,9 +301,7 @@ export default function Navbar({
         <div
           className="fixed top-0 right-0 w-full max-w-xs h-full shadow-2xl p-6 flex flex-col justify-between overflow-y-auto"
           style={{
-            backgroundColor: isDark
-              ? '#0C0D11'
-              : '#FAF7F2',
+            backgroundColor: 'var(--bg-primary)',
             borderLeft: '1px solid var(--border-gold)',
           }}
         >
@@ -323,9 +321,7 @@ export default function Navbar({
                   style={{
                     border:
                       '1px solid var(--border-gold)',
-                    backgroundColor: isDark
-                      ? '#12141A'
-                      : '#FDFAF6',
+                    backgroundColor: 'var(--bg-card)',
                   }}
                 >
                   <span

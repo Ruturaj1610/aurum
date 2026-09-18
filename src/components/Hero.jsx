@@ -39,13 +39,13 @@ export default function Hero({ theme, onBookAppointmentClick }) {
         {/* Gradient Overlays — themed */}
         {isDark ? (
           <>
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/75 to-dark-950/90" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D11] via-[#0C0D11]/80 to-[#0C0D11]/90" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#0C0D11_85%)]" />
           </>
         ) : (
           <>
-            <div className="absolute inset-0 bg-gradient-to-t from-linen-100 via-linen-50/80 to-linen-200/70" />
-            <div className="absolute inset-0 bg-gradient-to-r from-linen-100/60 via-transparent to-linen-100/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/88 to-[#F4EFE6]/75" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/85 via-transparent to-[#FAF7F2]/65" />
           </>
         )}
 
@@ -64,8 +64,8 @@ export default function Hero({ theme, onBookAppointmentClick }) {
           className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full backdrop-blur-md mb-8 animate-shimmer"
           style={{
             backgroundColor: isDark
-              ? 'rgba(18,20,26,0.8)'
-              : 'rgba(253,251,247,0.85)',
+              ? 'rgba(18,20,26,0.85)'
+              : 'rgba(255,255,255,0.9)',
             border: '1px solid var(--border-gold)',
             boxShadow: '0 0 20px var(--gold-glow-sm)',
           }}
@@ -76,7 +76,7 @@ export default function Hero({ theme, onBookAppointmentClick }) {
           />
 
           <span
-            className="text-xs uppercase tracking-[0.25em] font-medium"
+            className="text-[11px] uppercase tracking-[0.25em] font-medium"
             style={{ color: 'var(--gold-primary)' }}
           >
             Fine Indian Haute Joaillerie
@@ -91,7 +91,7 @@ export default function Hero({ theme, onBookAppointmentClick }) {
           Timeless Jewellery.
 
           <span
-            className="block mt-1 sm:mt-2 font-serif italic font-light"
+            className="block mt-1.5 sm:mt-2.5 font-serif italic font-light"
             style={{
               color: isDark
                 ? 'var(--gold-light)'
@@ -117,7 +117,7 @@ export default function Hero({ theme, onBookAppointmentClick }) {
           <a
             href="#collections"
             onClick={handleScrollToCollections}
-            className="w-full sm:w-auto px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-semibold btn-gold shadow-gold-glow-lg flex items-center justify-center gap-2 group cursor-pointer"
+            className="w-full sm:w-auto px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-semibold btn-gold shadow-gold-glow flex items-center justify-center gap-2 group cursor-pointer"
           >
             <span>Explore Collection</span>
 
@@ -149,9 +149,10 @@ export default function Hero({ theme, onBookAppointmentClick }) {
           ].map(({ icon: Icon, text, dot }) => (
             <div
               key={text}
-              className={`flex items-center justify-center gap-2 text-xs sm:text-sm font-light ${dot ? 'col-span-2 md:col-span-1' : ''
-                }`}
-              style={{ color: 'var(--text-muted)' }}
+              className={`flex items-center justify-center gap-2 text-xs sm:text-sm font-light ${
+                dot ? 'col-span-2 md:col-span-1' : ''
+              }`}
+              style={{ color: 'var(--text-secondary)' }}
             >
               {Icon && (
                 <Icon
@@ -173,19 +174,25 @@ export default function Hero({ theme, onBookAppointmentClick }) {
         </div>
       </div>
 
-      {/* Scroll Down Arrow */}
+      {/* Luxury Scroll Indicator */}
       <a
         href="#collections"
         onClick={handleScrollToCollections}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 p-2 rounded-full transition-colors animate-bounce"
-        style={{
-          border: '1px solid var(--border-gold)',
-          color: 'var(--gold-primary)',
-          opacity: 0.7
-        }}
+        className="group absolute bottom-7 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
         aria-label="Scroll down to collections"
       >
-        <ArrowDown className="w-4 h-4" />
+        <span className="text-[9px] uppercase tracking-[0.25em] font-medium" style={{ color: 'var(--gold-primary)' }}>
+          Explore
+        </span>
+        <div
+          className="w-5 h-8 rounded-full flex items-start justify-center p-1"
+          style={{ border: '1px solid var(--border-gold)', backgroundColor: 'var(--bg-card)' }}
+        >
+          <div
+            className="w-1 h-2 rounded-full transition-all duration-300 group-hover:translate-y-2"
+            style={{ backgroundColor: 'var(--gold-primary)' }}
+          />
+        </div>
       </a>
     </section>
   );

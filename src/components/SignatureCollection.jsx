@@ -74,14 +74,14 @@ export default function SignatureCollection({ onDiscoverCraftClick }) {
             <Reveal direction="left">
               {/* Eyebrow */}
               <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs uppercase tracking-[0.25em] font-medium mb-4"
-                style={{ backgroundColor: 'rgba(197,155,75,0.1)', border: '1px solid var(--border-gold)', color: 'var(--gold-primary)' }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs uppercase tracking-[0.25em] font-medium mb-4"
+                style={{ backgroundColor: 'rgba(197,155,75,0.08)', border: '1px solid var(--border-gold)', color: 'var(--gold-primary)' }}
               >
                 <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--gold-primary)' }} />
                 <span>{signatureCollection.eyebrow}</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif leading-[1.15] mb-6 font-normal" style={{ color: 'var(--text-heading)' }}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif leading-[1.14] mb-6 font-normal" style={{ color: 'var(--text-heading)' }}>
                 {signatureCollection.heading}
               </h2>
 
@@ -98,23 +98,24 @@ export default function SignatureCollection({ onDiscoverCraftClick }) {
                   return (
                     <div
                       key={pillar.title}
-                      className="p-4 rounded-lg flex items-start gap-4 transition-colors"
+                      className="p-4 sm:p-5 rounded-xl flex items-start gap-4 transition-all duration-300 hover:border-[var(--border-gold)]"
                       style={{
                         backgroundColor: 'var(--bg-card)',
                         border: '1px solid var(--border-light)',
+                        boxShadow: '0 2px 12px -2px rgba(28,26,23,0.04)',
                       }}
                     >
                       <div
-                        className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                        className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                         style={{ backgroundColor: 'rgba(197,155,75,0.1)', border: '1px solid var(--border-gold)' }}
                       >
                         <Icon className="w-4 h-4" style={{ color: 'var(--gold-primary)' }} />
                       </div>
                       <div>
-                        <h4 className="text-sm font-serif font-semibold tracking-wide mb-1" style={{ color: 'var(--text-heading)' }}>
+                        <h4 className="text-base font-serif font-medium tracking-wide mb-1" style={{ color: 'var(--text-heading)' }}>
                           {pillar.title}
                         </h4>
-                        <p className="text-xs font-light leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                        <p className="text-xs sm:text-sm font-light leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                           {pillar.description}
                         </p>
                       </div>
@@ -125,7 +126,7 @@ export default function SignatureCollection({ onDiscoverCraftClick }) {
 
               <button
                 onClick={onDiscoverCraftClick}
-                className="px-8 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-semibold btn-gold shadow-gold-glow flex items-center gap-2 group cursor-pointer"
+                className="px-8 py-4 rounded-full text-xs uppercase tracking-[0.2em] font-semibold btn-gold shadow-gold-glow flex items-center gap-2 group cursor-pointer"
               >
                 <span>{signatureCollection.ctaText}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />

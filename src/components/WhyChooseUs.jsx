@@ -27,44 +27,46 @@ export default function WhyChooseUs() {
           {siteConfig.whyChooseUs.map((feature, index) => {
             const IconComponent = iconMap[feature.iconName] || ShieldCheck;
             return (
-              <Reveal key={feature.id} delay={index * 120}>
+              <Reveal key={feature.id} delay={index * 100}>
                 <div
-                  className="group h-full p-8 rounded-xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden"
+                  className="group h-full p-7 sm:p-8 rounded-2xl flex flex-col justify-between transition-all duration-400 hover:-translate-y-1 relative overflow-hidden"
                   style={{
                     backgroundColor: 'var(--bg-card)',
                     border: '1px solid var(--border-light)',
-                    boxShadow: '0 4px 20px -4px rgba(28,26,23,0.07)',
+                    boxShadow: '0 4px 20px -4px rgba(28,26,23,0.06)',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(197,155,75,0.45)';
-                    e.currentTarget.style.boxShadow = '0 12px 40px -8px var(--gold-glow)';
+                    e.currentTarget.style.borderColor = 'var(--border-gold)';
+                    e.currentTarget.style.boxShadow = '0 14px 40px -8px var(--gold-glow)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = 'var(--border-light)';
-                    e.currentTarget.style.boxShadow = '0 4px 20px -4px rgba(28,26,23,0.07)';
+                    e.currentTarget.style.boxShadow = '0 4px 20px -4px rgba(28,26,23,0.06)';
                   }}
                 >
-                  {/* Subtle ambient glow corner */}
-                  <div
-                    className="absolute top-0 right-0 w-28 h-28 rounded-full blur-2xl pointer-events-none"
-                    style={{ backgroundColor: 'var(--gold-glow-sm)' }}
-                  />
+                  {/* Subtle index numeral in top right corner */}
+                  <span
+                    className="absolute top-5 right-6 font-serif text-2xl sm:text-3xl font-light select-none transition-colors"
+                    style={{ color: 'var(--border-muted)', opacity: 0.7 }}
+                  >
+                    0{index + 1}
+                  </span>
 
                   <div>
                     {/* Icon */}
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm"
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm"
                       style={{
                         backgroundColor: 'rgba(197,155,75,0.08)',
                         border: '1px solid var(--border-gold)',
                         color: 'var(--gold-primary)',
                       }}
                     >
-                      <IconComponent className="w-6 h-6" />
+                      <IconComponent className="w-5 h-5" />
                     </div>
 
                     <h3
-                      className="text-xl sm:text-2xl font-serif mb-3 font-medium transition-colors"
+                      className="text-xl sm:text-2xl font-serif mb-3 font-normal transition-colors"
                       style={{ color: 'var(--text-heading)' }}
                     >
                       {feature.title}
@@ -76,14 +78,14 @@ export default function WhyChooseUs() {
 
                     <p
                       className="text-xs font-light leading-relaxed pt-3"
-                      style={{ borderTop: '1px solid var(--border-light)', color: 'var(--text-faint)' }}
+                      style={{ borderTop: '1px solid var(--border-light)', color: 'var(--text-muted)' }}
                     >
                       {feature.detail}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-medium" style={{ color: 'var(--gold-primary)' }}>
-                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  <div className="mt-6 pt-4 flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] font-medium" style={{ color: 'var(--gold-primary)' }}>
+                    <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
                     <span>Certified Quality</span>
                   </div>
                 </div>

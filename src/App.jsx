@@ -139,7 +139,7 @@ export default function App() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with Aurum Jewels on WhatsApp"
-          className="group flex items-center gap-3 p-3.5 rounded-full border shadow-[0_4px_25px_rgba(0,0,0,0.18)] backdrop-blur-md transition-all duration-300 hover:scale-105"
+          className="group flex items-center gap-2.5 px-4 py-3 rounded-full border shadow-[0_6px_25px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95"
           style={{
             backgroundColor: 'var(--bg-card)',
             borderColor: 'var(--border-gold)',
@@ -147,12 +147,12 @@ export default function App() {
           }}
         >
           <MessageCircle
-            className="w-6 h-6 flex-shrink-0"
+            className="w-5 h-5 flex-shrink-0"
             style={{ color: 'var(--gold-primary)' }}
           />
 
           <span
-            className="hidden sm:inline-block pr-2 text-xs uppercase tracking-widest font-semibold"
+            className="hidden sm:inline-block pr-1 text-[11px] uppercase tracking-[0.16em] font-medium transition-colors"
             style={{ color: 'var(--text-secondary)' }}
           >
             Chat on WhatsApp

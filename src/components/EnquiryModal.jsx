@@ -27,11 +27,23 @@ export default function EnquiryModal({ product, onClose, onBookAppointment }) {
       />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-2xl bg-dark-900 border border-gold-500/30 rounded-2xl shadow-2xl overflow-hidden z-10 my-8">
+      <div
+        className="relative w-full max-w-2xl border rounded-2xl shadow-2xl overflow-hidden z-10 my-8 transition-colors"
+        style={{
+          backgroundColor: 'var(--bg-card)',
+          borderColor: 'var(--border-gold)',
+          boxShadow: '0 20px 60px -15px rgba(0,0,0,0.3)',
+        }}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-dark-950/70 border border-white/10 text-ivory-300 hover:text-white hover:bg-dark-800 transition-colors"
+          className="absolute top-4 right-4 z-20 p-2 rounded-full backdrop-blur-md transition-colors cursor-pointer"
+          style={{
+            backgroundColor: 'rgba(12,13,17,0.6)',
+            border: '1px solid rgba(255,255,255,0.15)',
+            color: '#FFFFFF',
+          }}
           aria-label="Close product preview"
         >
           <X className="w-5 h-5" />
@@ -39,15 +51,18 @@ export default function EnquiryModal({ product, onClose, onBookAppointment }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Product Image */}
-          <div className="relative h-64 md:h-full min-h-[280px] bg-dark-950">
+          <div className="relative h-64 md:h-full min-h-[280px]" style={{ backgroundColor: 'var(--bg-secondary)' }}>
             <img
               src={product.image}
               alt={product.name}
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent md:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:hidden" />
             <div className="absolute top-4 left-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-dark-900/90 text-gold-300 border border-gold-500/40 backdrop-blur-md">
+              <span
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold backdrop-blur-md shadow-sm"
+                style={{ backgroundColor: 'rgba(12,13,17,0.85)', border: '1px solid var(--border-gold)', color: 'var(--gold-bright)' }}
+              >
                 <Sparkles className="w-3 h-3 text-gold-400" />
                 <span>{product.badge}</span>
               </span>
@@ -57,39 +72,46 @@ export default function EnquiryModal({ product, onClose, onBookAppointment }) {
           {/* Product Information */}
           <div className="p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <span className="text-xs uppercase tracking-[0.2em] text-gold-400 font-semibold block mb-1">
+              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold block mb-1" style={{ color: 'var(--gold-primary)' }}>
                 {product.category} Collection
               </span>
 
-              <h3 className="text-2xl font-serif text-ivory-50 mb-2">
+              <h3 className="text-2xl font-serif mb-2.5 font-normal" style={{ color: 'var(--text-heading)' }}>
                 {product.name}
               </h3>
 
-              <div className="inline-block px-2.5 py-1 rounded bg-dark-850 border border-dark-750 text-xs text-gold-300 font-medium mb-4">
+              <div
+                className="inline-block px-3 py-1 rounded-md text-xs font-medium mb-4"
+                style={{
+                  backgroundColor: 'var(--bg-card-alt)',
+                  border: '1px solid var(--border-light)',
+                  color: 'var(--gold-primary)',
+                }}
+              >
                 {product.purity}
               </div>
 
-              <p className="text-ivory-300 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm font-light leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
                 {product.description}
               </p>
 
-              <div className="space-y-2 mb-6 text-xs text-ivory-400">
+              <div className="space-y-2 mb-6 text-xs" style={{ color: 'var(--text-muted)' }}>
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-gold-400" />
+                  <ShieldCheck className="w-4 h-4 text-gold-400 flex-shrink-0" />
                   <span>Certified BIS 916 Hallmark / IGI Diamond</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-gold-400" />
+                  <Sparkles className="w-4 h-4 text-gold-400 flex-shrink-0" />
                   <span>Complimentary Lifetime Cleaning & Polish</span>
                 </div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-2.5 pt-4 border-t border-dark-750">
+            <div className="space-y-2.5 pt-4" style={{ borderTop: '1px solid var(--border-light)' }}>
               <button
                 onClick={handleWhatsAppEnquiry}
-                className="w-full py-3 rounded-full text-xs uppercase tracking-wider font-semibold btn-gold text-dark-950 flex items-center justify-center gap-2 shadow-gold-glow cursor-pointer"
+                className="w-full py-3.5 rounded-full text-xs uppercase tracking-wider font-semibold btn-gold text-dark-950 flex items-center justify-center gap-2 shadow-gold-glow cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Enquire via WhatsApp</span>
@@ -97,9 +119,9 @@ export default function EnquiryModal({ product, onClose, onBookAppointment }) {
 
               <button
                 onClick={handleBookViewing}
-                className="w-full py-3 rounded-full text-xs uppercase tracking-wider font-medium btn-outline-gold flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3.5 rounded-full text-xs uppercase tracking-wider font-medium btn-outline-gold flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Calendar className="w-4 h-4 text-gold-400" />
+                <Calendar className="w-4 h-4" style={{ color: 'var(--gold-primary)' }} />
                 <span>Book In-Person Viewing</span>
               </button>
             </div>

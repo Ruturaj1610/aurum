@@ -8,85 +8,89 @@
 :root {
   /* Backgrounds */
   --bg-primary:     #FAF7F2;   /* warm ivory */
-  --bg-secondary:   #F2ECE2;   /* deeper cream */
-  --bg-card:        #FFFFFF;
-  --bg-card-alt:    #FDFAF6;   /* warm white */
-  --bg-overlay:     rgba(250, 247, 242, 0.92);
+  --bg-secondary:   #F4EFE6;   /* refined cream */
+  --bg-card:        #FFFFFF;   /* pristine white */
+  --bg-card-alt:    #FCF9F4;   /* warm subtle white */
+  --bg-overlay:     rgba(250, 247, 242, 0.94);
 
   /* Typography */
-  --text-heading:   #1C1A17;   /* deep charcoal */
-  --text-body:      #3F3C38;
-  --text-secondary: #524F4A;
-  --text-muted:     #6B6860;
-  --text-faint:     #88847C;
+  --text-heading:   #181715;   /* deep obsidian charcoal */
+  --text-body:      #383531;   /* rich warm charcoal */
+  --text-secondary: #5A5650;   /* readable secondary */
+  --text-muted:     #7C7870;   /* soft muted */
+  --text-faint:     #9E9A92;   /* subtle label */
 
   /* Borders */
-  --border-light:   #E8E0D0;
-  --border-muted:   #D4C8B2;
-  --border-gold:    rgba(197, 155, 75, 0.3);
+  --border-light:   #EAE3D6;
+  --border-muted:   #DCD2C2;
+  --border-gold:    rgba(197, 155, 75, 0.35);
 
-  /* Gold Accents (slightly muted for light bg) */
+  /* Gold Accents */
   --gold-primary:   #B8892E;
   --gold-bright:    #C59B4B;
-  --gold-glow:      rgba(197, 155, 75, 0.18);
+  --gold-light:     #E8C47A;
+  --gold-dark:      #8E6C2D;
+  --gold-glow:      rgba(197, 155, 75, 0.20);
   --gold-glow-sm:   rgba(197, 155, 75, 0.10);
 
   /* Navbar */
-  --nav-bg:         rgba(253, 251, 247, 0.85);
-  --nav-bg-scrolled:rgba(253, 251, 247, 0.97);
-  --nav-border:     rgba(232, 224, 208, 0.8);
+  --nav-bg:         rgba(253, 251, 247, 0.88);
+  --nav-bg-scrolled:rgba(253, 251, 247, 0.98);
+  --nav-border:     rgba(232, 224, 208, 0.85);
 
   /* Buttons */
-  --btn-gold-bg:       linear-gradient(135deg, #DFB76C 0%, #C59B4B 50%, #A47D1C 100%);
-  --btn-gold-hover-bg: linear-gradient(135deg, #EBD9BA 0%, #DFB76C 50%, #C59B27 100%);
-  --btn-outline-border: rgba(197, 155, 75, 0.5);
-  --btn-outline-text:   #3F3C38;
-  --btn-outline-bg:     rgba(250, 247, 242, 0.6);
+  --btn-gold-bg:       linear-gradient(135deg, #E0B86F 0%, #C59B4B 50%, #A47D1C 100%);
+  --btn-gold-hover-bg: linear-gradient(135deg, #ECD7B5 0%, #DFB76C 50%, #B8892E 100%);
+  --btn-outline-border: rgba(184, 137, 46, 0.45);
+  --btn-outline-text:   #2D2A26;
+  --btn-outline-bg:     rgba(250, 247, 242, 0.7);
 
   /* Shimmer */
-  --shimmer-color: rgba(197, 155, 75, 0.15);
+  --shimmer-color: rgba(197, 155, 75, 0.16);
 }
 
 .dark {
   /* Backgrounds */
   --bg-primary:     #0C0D11;
-  --bg-secondary:   #07080A;
-  --bg-card:        #12141A;
-  --bg-card-alt:    #171922;
-  --bg-overlay:     rgba(12, 13, 17, 0.88);
+  --bg-secondary:   #11131A;
+  --bg-card:        #151821;
+  --bg-card-alt:    #1B1F2C;
+  --bg-overlay:     rgba(12, 13, 17, 0.90);
 
   /* Typography */
-  --text-heading:   #F8F5EE;
+  --text-heading:   #F9F6F0;
   --text-body:      #EFE9DE;
   --text-secondary: #DFD5C2;
-  --text-muted:     #BDB19B;
-  --text-faint:     #8E826C;
+  --text-muted:     #B5A992;
+  --text-faint:     #877B67;
 
   /* Borders */
-  --border-light:   #1E212D;
-  --border-muted:   #272B3A;
-  --border-gold:    rgba(223, 183, 108, 0.2);
+  --border-light:   #212533;
+  --border-muted:   #2C3144;
+  --border-gold:    rgba(223, 183, 108, 0.25);
 
   /* Gold Accents */
   --gold-primary:   #DFB76C;
   --gold-bright:    #F5E6CA;
-  --gold-glow:      rgba(212, 175, 55, 0.18);
-  --gold-glow-sm:   rgba(212, 175, 55, 0.08);
+  --gold-light:     #F8ECD5;
+  --gold-dark:      #B8892E;
+  --gold-glow:      rgba(212, 175, 55, 0.22);
+  --gold-glow-sm:   rgba(212, 175, 55, 0.10);
 
   /* Navbar */
-  --nav-bg:         rgba(12, 13, 17, 0.75);
-  --nav-bg-scrolled:rgba(12, 13, 17, 0.95);
-  --nav-border:     rgba(30, 33, 45, 0.9);
+  --nav-bg:         rgba(12, 13, 17, 0.82);
+  --nav-bg-scrolled:rgba(12, 13, 17, 0.96);
+  --nav-border:     rgba(33, 37, 51, 0.9);
 
   /* Buttons */
   --btn-gold-bg:       linear-gradient(135deg, #DFB76C 0%, #C59B27 50%, #A47D1C 100%);
-  --btn-gold-hover-bg: linear-gradient(135deg, #EBD9BA 0%, #DFB76C 50%, #C59B27 100%);
-  --btn-outline-border: rgba(212, 175, 55, 0.5);
+  --btn-gold-hover-bg: linear-gradient(135deg, #F0E0C0 0%, #DFB76C 50%, #C59B27 100%);
+  --btn-outline-border: rgba(223, 183, 108, 0.45);
   --btn-outline-text:   #F5E6CA;
-  --btn-outline-bg:     rgba(12, 13, 17, 0.6);
+  --btn-outline-bg:     rgba(12, 13, 17, 0.65);
 
   /* Shimmer */
-  --shimmer-color: rgba(223, 183, 108, 0.12);
+  --shimmer-color: rgba(223, 183, 108, 0.14);
 }
 
 /* =========================================================
@@ -258,10 +262,10 @@
 /* =========================================================
    THEME TRANSITION — smooth switching
    ========================================================= */
-*, *::before, *::after {
+body, header, footer, section, nav, div[style*="background-color"], div[style*="border"], button, input, select, textarea {
   transition-property: background-color, border-color, color, box-shadow;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Exclude transitions for elements that shouldn't animate */
